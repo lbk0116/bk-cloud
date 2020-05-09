@@ -26,7 +26,7 @@ DATABASES.update(
             'NAME': APP_CODE,  # 数据库名
             'USER': 'root',
             'PASSWORD': 'root',
-            'HOST': 'localhost',
+            'HOST': '10.12.33.6',
             'PORT': '3306',
         },
     }
