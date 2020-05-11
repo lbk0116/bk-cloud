@@ -187,7 +187,10 @@
                 // 异步请求后台数据
                 $.ajax({
                     {#url: 'https://magicbox.bk.tencent.com/static_api/v3/components/table7/data.json',#}
-                    url: 'http://appdev.paas.bk.com:8000/api-vms',
+                    // 本地开发地址
+                    {#url: 'http://appdev.paas.bk.com:8000/api-vms',#}
+                    // 测试地址
+                    url: 'http://paas.bk.com/t/cloud/api-vms',
                     type: 'GET',
                     success: function(res){
                         var _html = ' ';
