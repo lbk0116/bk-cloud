@@ -76,7 +76,7 @@
                                     <ul class="sub-menu" style="display: none;">
                                         <li><a href="javascript:void(0);">vcenter<i class="fa fa-chevron-right pull-right"></i></a></li>
                                         <li><a href="javascript:void(0);">host<i class="fa fa-chevron-right pull-right"></i></a></li>
-                                        <li class="c-open"><a href="/vm-list/">vm<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                        <li class="c-open"><a href="vm-list/">vm<i class="fa fa-chevron-right pull-right"></i></a></li>
                                     </ul>
                                 </li>
                                 <li class="has_submenu current open c-open">
@@ -187,7 +187,10 @@
                 // 异步请求后台数据
                 $.ajax({
                     {#url: 'https://magicbox.bk.tencent.com/static_api/v3/components/table7/data.json',#}
-                    url: 'http://appdev.paas.bk.com:8000/api-vms',
+                    // 本地开发地址
+                    {#url: 'http://appdev.paas.bk.com:8000/api-vms',#}
+                    // 测试地址
+                    url: 'http://paas.bk.com/t/cloud/api-vms',
                     type: 'GET',
                     success: function(res){
                         var _html = ' ';
