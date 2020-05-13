@@ -81,7 +81,7 @@
 <script>
     $('#submit').click(function () {
         $.ajax({
-            url: '/vm/create/',
+            url: 'cloud/vm/create/',
             type: 'POST',
             contentType: 'application/json',
             headers:{"X-csrftoken":$("[name='csrfmiddlewaretoken']").val()},
