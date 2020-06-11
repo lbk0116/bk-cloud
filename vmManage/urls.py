@@ -4,7 +4,8 @@ from django.conf.urls import url
 
 from . import views
 from . import vm
-
+from vmManage import vip_manage
+from vmManage import config_sync
 
 urlpatterns = (
     url(r'^$', views.home),
@@ -16,4 +17,9 @@ urlpatterns = (
     url(r'^home/$', views.home),
     url(r'^vm/create/$', vm.create_vm_api),
     url(r'^vm-create/$', vm.create_vm),
+    url(r'^vip-list/$', vip_manage.Vip.as_view(), name="get_vip"),
+    url(r'^pool/$', vip_manage.Pool.as_view(), name="pool"),
+    url(r'^config-sync/pool/$', config_sync.pool_sync),
+    url(r'^config-sync/vs/$', config_sync.vs_sync),
+    url(r'auto/slb/locate', vip_manage.locate_slb),
 )

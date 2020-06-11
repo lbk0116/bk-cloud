@@ -30,7 +30,7 @@ MIDDLEWARE = (
     'blueapps.middleware.request_provider.RequestProvider',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # 跨域检测中间件， 默认关闭
@@ -41,7 +41,7 @@ MIDDLEWARE = (
     # Auth middleware
     'blueapps.account.middlewares.RioLoginRequiredMiddleware',
     'blueapps.account.middlewares.WeixinLoginRequiredMiddleware',
-    'blueapps.account.middlewares.LoginRequiredMiddleware',
+    # 'blueapps.account.middlewares.LoginRequiredMiddleware',
     # exception middleware
     'blueapps.core.exceptions.middleware.AppExceptionMiddleware',
     # django国际化中间件

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import render
 from vmware.vapi.vsphere.client import create_vsphere_client
@@ -18,10 +18,10 @@ from com.vmware.vcenter_client import Folder
 from com.vmware.vcenter_client import ResourcePool
 
 
-session = requests.session()
-session.verify = False
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-vsphere_client = create_vsphere_client(server='10.12.0.3', username='libaokun@lab.ntjc', password='p@ssw0rd', session=session)
+# session = requests.session()
+# session.verify = False
+# urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+# vsphere_client = create_vsphere_client(server='10.12.0.3', username='libaokun@lab.ntjc', password='p@ssw0rd', session=session)
 
 def get_vm_list(request):
 
@@ -140,8 +140,7 @@ def get_placement_spec_for_resource_pool(client,
                                       resource_pool=resource_pool,
                                       datastore=datastore)
 
-    print("get_placement_spec_for_resource_pool: Result is '{}'".
-          format(placement_spec))
+    print("get_placement_spec_for_resource_pool: Result is '{}'".format(placement_spec))
     return placement_spec
 
 def get_datastore(client, datacenter_name, datastore_name):
