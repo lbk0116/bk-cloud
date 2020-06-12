@@ -13,7 +13,7 @@ urlpatterns = (
     url(r'^contact/$', views.contact),
     url(r'^hello/$', views.hello),
     url(r'^vm-list/$', vm.vms),
-    url(r'^api-vms$', vm.get_vms),
+    url(r'^api-vms/$', vm.get_vms),
     url(r'^home/$', views.home),
     url(r'^vm/create/$', vm.create_vm_api),
     url(r'^vm-create/$', vm.create_vm),
@@ -21,5 +21,5 @@ urlpatterns = (
     url(r'^pool/$', vip_manage.Pool.as_view(), name="pool"),
     url(r'^config-sync/pool/$', config_sync.pool_sync),
     url(r'^config-sync/vs/$', config_sync.vs_sync),
-    url(r'auto/slb/locate', vip_manage.locate_slb),
+    url(r'^auto/slb/locate/$', vip_manage.locate_slb),
 )
