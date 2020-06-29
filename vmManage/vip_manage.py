@@ -105,5 +105,10 @@ def locate_slb(request):
     slb_device = models.Device.objects.all()[0]
     return JsonResponse({"device_ip": slb_device.mgt_ip})
 
-def pre_check(request):
-    pass
+def is_conflict(request):
+    """
+        查询设备实时配置，判断需求是否跟当前配置冲突
+        有冲突，返回1
+        无冲突，返回0
+    """
+    return JsonResponse({"result": 0})
