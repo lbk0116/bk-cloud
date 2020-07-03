@@ -22,5 +22,6 @@ urlpatterns = (
     url(r'^config-sync/pool/$', config_sync.pool_sync),
     url(r'^config-sync/vs/$', config_sync.vs_sync),
     url(r'^auto/slb/locate/$', vip_manage.locate_slb),
-    url(r'^config/pre-check/$', vip_manage.is_conflict)
+    url(r'^config/pre-check/$', vip_manage.is_conflict),
+    url(r'^slb/allocate-ip/$',vip_manage.allocate_ip)
 )

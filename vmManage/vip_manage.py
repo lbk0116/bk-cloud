@@ -6,6 +6,8 @@ from django.views import View
 import json
 import requests
 from vmManage import models
+import urllib
+
 
 
 class Vip(View):
@@ -112,3 +114,40 @@ def is_conflict(request):
         无冲突，返回0
     """
     return JsonResponse({"result": 0})
+
+def allocate_ip(request):
+    """
+        调用IP管理系统，分配vip
+    """
+    """ 接口返回数据格式
+    {
+        "fixed_ips": [
+            {
+                "id": "06823556-4948-4d2c-8a0f-20b46eb37dcf",
+                "ip_address": "172.16.0.1",
+                "subnet_id": "b0d39ab5-3f4c-4cd7-8195-56e0f1a81413",
+                "tag": "outer"
+            }
+        ]
+    }
+    ### 接口请求格式
+    {
+        "fixed_ip":{
+            "subnet_id": "b0d39ab5-3f4c-4cd7-8195-56e0f1a81413"
+            }
+    }
+    """
+    url = "http://10.12.248.22:5000/ips/"
+    data = {
+        "fixed_ip":{
+        "subnet_id": "b0d39ab5-3f4c-4cd7-8195-56e0f1a81413"
+            }
+        }
+    headers = {
+        "Content-Type": "application/json",
+    }
+
+    response = requests.post(url,headers=headers,data=json.dumps(data))
+    ip = json.loads(response.text)['fixed_ips'][0]['ip_address']
+    return JsonResponse({"result": ip})
+    
